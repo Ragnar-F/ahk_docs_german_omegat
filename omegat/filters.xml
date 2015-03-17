@@ -7,7 +7,7 @@
     </filter>
     <filter enabled="true" className="org.omegat.filters2.text.TextFilter">
         <files targetFilenamePattern="${filename}" sourceFilenameMask="*.txt"/>
-        <files targetFilenamePattern="${filename}" sourceFilenameMask="data_*.js"/>
+        <files targetEncoding="UTF-8" targetFilenamePattern="${filename}" sourceFilenameMask="data_*.js"/>
         <option value="0" name="lineLength"/>
         <option value="0" name="maxLineLength"/>
         <option value="BREAKS" name="segmentOn"/>
