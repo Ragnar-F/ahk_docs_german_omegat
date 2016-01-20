@@ -53,7 +53,8 @@ RunWait, % A_ScriptDir "/target/compile_chm.ahk"
 
 ; compress chm into zip file
 
-SmartZip(A_ScriptDir "\target\AutoHotkey.chm", A_ScriptDir "\AutoHotkeyHelp_DE.zip")
+SmartZip(A_ScriptDir "\target\AutoHotkey.chm", A_ScriptDir "\temp.zip")
+FileMove, % A_ScriptDir "\temp.zip", % A_ScriptDir "\AutoHotkeyHelp_DE.zip", 1
 
 /*
 SmartZip()
