@@ -11,7 +11,7 @@ Loop, target\*.htm,, 1
 
     if (A_LoopFileFullPath = "target\AutoHotkey.htm")
     {
-        content := RegExReplace(content, "<p><a.*?</a></p>", "<p>Eine deutsche &Uuml;bersetzung von <a href=""http://ahkscript.org/docs/"">http://ahkscript.org/docs/</a> (siehe <a href=""http://ahkscript.org/boards/viewtopic.php?f=9&amp;t=43"">hier</a> f&uuml;r mehr Details).</p>")
+        content := RegExReplace(content, "<p><a.*?</a></p>", "<p>Eine deutsche &Uuml;bersetzung von <a href=""https://autohotkey.com/docs/"">https://autohotkey.com/docs/</a> (siehe <a href=""https://autohotkey.com/boards/viewtopic.php?f=9&amp;t=43"">hier</a> f&uuml;r mehr Details).</p>")
     }
 
     ; add google analytics
