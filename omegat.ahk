@@ -30,8 +30,6 @@ Loop, target\*.htm,, 1
 
     ; change doctype to html5
 
-    content := RegExReplace(content, "s)<!DOCTYPE HTML.*?>", "<!DOCTYPE HTML>")
-
     if (content != content_orig)
     {
         file := FileOpen(A_LoopFileLongPath, "w")

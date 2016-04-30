@@ -143,4 +143,43 @@
     <filter className="org.omegat.filters3.xml.xmlspreadsheet.XMLSpreadsheetFilter" enabled="true">
         <files sourceFilenameMask="*.xml" targetFilenamePattern="${filename}"/>
     </filter>
+    <filter className="net.sf.okapi.lib.omegat.XLIFFFilter" enabled="true">
+        <files sourceFilenameMask="*.xlf" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.xliff" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.sdlxliff" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.mxliff" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.mqxliff" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.XLIFF2Filter" enabled="true">
+        <files sourceFilenameMask="*.xlf" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.DoxygenFilter" enabled="true">
+        <files sourceFilenameMask="*.h" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.c" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.cpp" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.java" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.py" targetFilenamePattern="${filename}"/>
+        <files sourceFilenameMask="*.m" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.TTXFilter" enabled="true">
+        <files sourceFilenameMask="*.ttx" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.TXMLFilter" enabled="true">
+        <files sourceFilenameMask="*.txml" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.TransifexFilter" enabled="true">
+        <files sourceFilenameMask="*.txp" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.JSONFilter" enabled="true">
+        <files sourceFilenameMask="*.json" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.IDMLFilter" enabled="true">
+        <files sourceFilenameMask="*.idml" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.XMLFilter" enabled="true">
+        <files sourceFilenameMask="*.xml" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="net.sf.okapi.lib.omegat.TSFilter" enabled="true">
+        <files sourceFilenameMask="*.ts" targetFilenamePattern="${filename}"/>
+    </filter>
 </filters>
