@@ -182,4 +182,13 @@
     <filter className="net.sf.okapi.lib.omegat.TSFilter" enabled="true">
         <files sourceFilenameMask="*.ts" targetFilenamePattern="${filename}"/>
     </filter>
+    <filter className="org.omegat.filters3.xml.properties.PropertiesFilter" enabled="true">
+        <files sourceFilenameMask="*.xml" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="org.omegat.filters3.xml.schematron.SchematronFilter" enabled="true">
+        <files sourceFilenameMask="*.sch" targetFilenamePattern="${filename}"/>
+    </filter>
+    <filter className="org.omegat.filters3.xml.wordpress.WordpressFilter" enabled="true">
+        <files sourceFilenameMask="*.xml" targetFilenamePattern="${filename}"/>
+    </filter>
 </filters>
