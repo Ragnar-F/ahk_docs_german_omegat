@@ -191,4 +191,7 @@
     <filter className="org.omegat.filters3.xml.wordpress.WordpressFilter" enabled="true">
         <files sourceFilenameMask="*.xml" targetFilenamePattern="${filename}"/>
     </filter>
+    <filter className="org.omegat.filters3.xml.relaxng.RelaxNGFilter" enabled="true">
+        <files sourceFilenameMask="*.rng" targetFilenamePattern="${filename}"/>
+    </filter>
 </filters>
