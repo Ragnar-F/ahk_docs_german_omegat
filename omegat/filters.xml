@@ -194,4 +194,7 @@
     <filter className="org.omegat.filters3.xml.relaxng.RelaxNGFilter" enabled="true">
         <files sourceFilenameMask="*.rng" targetFilenamePattern="${filename}"/>
     </filter>
+    <filter className="org.omegat.filters2.subtitles.SbvFilter" enabled="true">
+        <files sourceFilenameMask="*.sbv" targetFilenamePattern="${filename}"/>
+    </filter>
 </filters>

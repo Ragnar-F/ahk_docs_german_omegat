@@ -21,12 +21,12 @@ Loop, target\*.htm,, 1
 
     replace  =
     ( LTrim Join`r`n
-    <script src="%pre%static/ga.js" type="text/javascript"></script>
     <script src="%pre%static/content.js" type="text/javascript"></script>
+    <script src="%pre%static/ga.js" type="text/javascript"></script>
     )
 
     if !InStr(content, replace)
-        content := RegExReplace(content, "<script.*content.js.*?></script>", replace)
+        content := RegExReplace(content, "<script.*content.js.*?>.*</script>", replace)
 
     ; change doctype to html5
 
@@ -43,7 +43,7 @@ Loop, target\*.htm,, 1
 
 ; restore own CreateFiles4Help.ahk due to the difference in folder structure
 
-RunWait, % "git checkout -- CreateFiles4Help.ahk", % A_ScriptDir "/target/static/source"
+;~ RunWait, % "git checkout -- CreateFiles4Help.ahk", % A_ScriptDir "/target/static/source"
 
 ; compile docs to chm
 
