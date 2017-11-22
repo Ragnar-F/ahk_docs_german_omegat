@@ -197,4 +197,7 @@
     <filter className="org.omegat.filters2.subtitles.SbvFilter" enabled="true">
         <files sourceFilenameMask="*.sbv" targetFilenamePattern="${filename}"/>
     </filter>
+    <filter className="org.omegat.filters2.subtitles.WebVttFilter" enabled="true">
+        <files sourceFilenameMask="*.vtt" targetFilenamePattern="${filename}"/>
+    </filter>
 </filters>

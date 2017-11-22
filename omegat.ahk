@@ -6,6 +6,11 @@ Loop, target\*.htm,, 1
 {
     FileRead, content_orig, % A_LoopFileLongPath
     content := content_orig
+    
+    ; skip sites
+    
+    if (A_LoopFileFullPath ~= "target\\(iframe|search)\.htm")
+      continue
 
     ; add more infos about the translation 
 
@@ -41,9 +46,9 @@ Loop, target\*.htm,, 1
     
 }
 
-; restore own CreateFiles4Help.ahk due to the difference in folder structure
+; create search index
 
-;~ RunWait, % "git checkout -- CreateFiles4Help.ahk", % A_ScriptDir "/target/static/source"
+RunWait, % A_AhkPath "/../v2-alpha/x86/AutoHotkey.exe" " """ A_ScriptDir "/target/static/source/build_search.ahk"""
 
 ; compile docs to chm
 

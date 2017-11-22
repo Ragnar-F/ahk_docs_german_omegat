@@ -10,6 +10,7 @@
             <mask>**/Thumbs.db</mask>
             <mask>**/.git</mask>
             <mask>**/CreateFiles4Help.ahk</mask>
+            <mask>**/data_search.js</mask>
         </source_dir_excludes>
         <target_dir>__DEFAULT__</target_dir>
         <tm_dir>__DEFAULT__</tm_dir>
