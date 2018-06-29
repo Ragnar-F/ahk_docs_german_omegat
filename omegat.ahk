@@ -4,12 +4,13 @@ SetWorkingDir, % A_ScriptDir
 
 Loop, target\*.htm,, 1
 {
+    FileEncoding, UTF-8-RAW
     FileRead, content_orig, % A_LoopFileLongPath
     content := content_orig
     
     ; skip sites
     
-    if (A_LoopFileFullPath ~= "target\\(iframe|search)\.htm")
+    if (A_LoopFileFullPath ~= "target\\search\.htm")
       continue
 
     ; add more infos about the translation 
@@ -18,6 +19,29 @@ Loop, target\*.htm,, 1
     {
         content := RegExReplace(content, "<p><a.*?</a></p>", "<p>Eine deutsche &Uuml;bersetzung von <a href=""https://autohotkey.com/docs/"">https://autohotkey.com/docs/</a> (siehe <a href=""https://autohotkey.com/boards/viewtopic.php?f=9&amp;t=43"">hier</a> f&uuml;r mehr Details).</p>")
     }
+    
+    ; add meta description for commands
+    
+    if (A_LoopFileDir ~= "commands$" and not InStr(content, "<meta name=""description"""))
+    {
+        if not (A_LoopFileName ~= "(GuiControls|index|ListView|TreeView|Math)")
+        {
+            RegExMatch(content, "<title>(?P<Title>.*?)</title>", m)
+            RegExMatch(content, "<p>(?P<Descr>.*?)</p>", m)
+            mDescr := RegExReplace(mDescr, "<.*?>(.*?)</.*?>", "$1")
+            if (mDescr ~= "^" mTitle "\b")
+                metaDescr := mDescr
+            else
+                metaDescr := mTitle " " Format("{:L}", SubStr(mDescr, 1, 1)) SubStr(mDescr, 2)
+            metaDescr := StrReplace(metaDescr, """", "&quot;")
+            content := StrReplace(content, "</title>", "</title>`r`n<meta name=""description"" content=""" metaDescr """>")
+        }
+    }
+    
+    ; add " - AutoHotkey" to title
+    
+    if not (content ~= "<title>.*?AutoHotkey.*?</title>")
+        content := StrReplace(content, "</title>", " - AutoHotkey</title>")
 
     ; add google analytics
 
@@ -33,7 +57,7 @@ Loop, target\*.htm,, 1
     if !InStr(content, replace)
         content := RegExReplace(content, "<script.*content.js.*?>.*</script>", replace)
 
-    ; change doctype to html5
+    ; overwrite file if needed
 
     if (content != content_orig)
     {
