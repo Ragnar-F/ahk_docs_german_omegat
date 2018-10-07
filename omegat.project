@@ -11,6 +11,8 @@
             <mask>**/.git</mask>
             <mask>**/CreateFiles4Help.ahk</mask>
             <mask>**/data_search.js</mask>
+            <mask>**/dlg_*.png</mask>
+            <mask>**/ctrl_*.png</mask>
         </source_dir_excludes>
         <target_dir>__DEFAULT__</target_dir>
         <tm_dir>__DEFAULT__</tm_dir>
@@ -25,5 +27,10 @@
         <support_default_translations>true</support_default_translations>
         <remove_tags>false</remove_tags>
         <external_command>"${ProgramW6432}\AutoHotkey\AutoHotkey.exe" "${projectRoot}\omegat.ahk"</external_command>
+        <repositories>
+            <repository type="git" url="https://github.com/ahkde/omegat-docs.git">
+                <mapping local="" repository=""/>
+            </repository>
+        </repositories>
     </project>
 </omegat>

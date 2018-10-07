@@ -19,29 +19,6 @@ Loop, target\*.htm,, 1
     {
         content := RegExReplace(content, "<p><a.*?</a></p>", "<p>Eine deutsche &Uuml;bersetzung von <a href=""https://autohotkey.com/docs/"">https://autohotkey.com/docs/</a> (siehe <a href=""https://autohotkey.com/boards/viewtopic.php?f=9&amp;t=43"">hier</a> f&uuml;r mehr Details).</p>")
     }
-    
-    ; add meta description for commands
-    
-    if (A_LoopFileDir ~= "commands$" and not InStr(content, "<meta name=""description"""))
-    {
-        if not (A_LoopFileName ~= "(GuiControls|index|ListView|TreeView|Math)")
-        {
-            RegExMatch(content, "<title>(?P<Title>.*?)</title>", m)
-            RegExMatch(content, "<p>(?P<Descr>.*?)</p>", m)
-            mDescr := RegExReplace(mDescr, "<.*?>(.*?)</.*?>", "$1")
-            if (mDescr ~= "^" mTitle "\b")
-                metaDescr := mDescr
-            else
-                metaDescr := mTitle " " Format("{:L}", SubStr(mDescr, 1, 1)) SubStr(mDescr, 2)
-            metaDescr := StrReplace(metaDescr, """", "&quot;")
-            content := StrReplace(content, "</title>", "</title>`r`n<meta name=""description"" content=""" metaDescr """>")
-        }
-    }
-    
-    ; add " - AutoHotkey" to title
-    
-    if not (content ~= "<title>.*?AutoHotkey.*?</title>")
-        content := StrReplace(content, "</title>", " - AutoHotkey</title>")
 
     ; add google analytics
 
@@ -72,7 +49,7 @@ Loop, target\*.htm,, 1
 
 ; create search index
 
-RunWait, % A_AhkPath "/../v2-alpha/x86/AutoHotkey.exe" " """ A_ScriptDir "/target/static/source/build_search.ahk"""
+RunWait, % A_AhkPath "/../v2-alpha/AutoHotkeyU32.exe" " """ A_ScriptDir "/target/static/source/build_search.ahk"""
 
 ; compile docs to chm
 
