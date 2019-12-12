@@ -2,8 +2,20 @@
 SetBatchLines, -1
 SetWorkingDir, % A_ScriptDir
 
+FileGetTime, LastSaveTime, tmx_ahk_docs-omegat.tmx
+TotalProcessedFiles := 0
 Loop, target\*.htm,, 1
 {
+    ; Get number of processed files to determine whether only one or all documents was created:
+    
+    FileGetTime, ModifyTime, % A_LoopFileLongPath
+    DiffTime := LastSaveTime
+    EnvSub, DiffTime, %ModifyTime%, seconds
+    if (DiffTime < 0)
+        TotalProcessedFiles++
+    
+    ; read content
+    
     FileEncoding, UTF-8-RAW
     FileRead, content_orig, % A_LoopFileLongPath
     content := content_orig
@@ -46,6 +58,11 @@ Loop, target\*.htm,, 1
     }
     
 }
+
+; Skip the rest below if only one file was processed since the file was only created for testing purposes:
+
+if (TotalProcessedFiles = 1)
+    ExitApp
 
 ; create search index
 
