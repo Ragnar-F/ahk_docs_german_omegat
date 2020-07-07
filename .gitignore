@@ -1,3 +1,6 @@
-project_save*.bak
-project_stats*.txt
+*.bak
+*.properties
+*.tmx
+*.txt
+*.zip
 target/
