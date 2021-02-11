@@ -66,7 +66,7 @@ if (TotalProcessedFiles = 1)
 
 ; create search index
 
-RunWait, % A_AhkPath "/../v2-alpha/AutoHotkeyU32.exe" " """ A_ScriptDir "/target/static/source/build_search.ahk"""
+; RunWait, % A_AhkPath "/../v2-alpha/AutoHotkeyU32.exe" " """ A_ScriptDir "/target/static/source/build_search.ahk"""
 
 ; compile docs to chm
 
