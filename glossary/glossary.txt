@@ -21,3 +21,6 @@ prefix	das Präfix
 suffix	das Suffix
 event handler	Ereignishandler
 interval	das Intervall
+subpattern	Teilsuchmuster
+pixel	das Pixel
+X Y coordinates	X- und Y-Koordinate
